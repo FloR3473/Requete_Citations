@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #2d3436;
+    text-align: center;
+    margin: 40px 0 60px 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(76, 175, 80, 0.1);
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Arrière-plan Zen - Image douce de nature et galets */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)), 
+                      url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+div {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 35px;
+    margin: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    max-width: 500px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Animation échelonnée pour chaque citation */
+div:nth-child(2) { animation-delay: 0.1s; }
+div:nth-child(3) { animation-delay: 0.2s; }
+div:nth-child(4) { animation-delay: 0.3s; }
+div:nth-child(5) { animation-delay: 0.4s; }
+div:nth-child(6) { animation-delay: 0.5s; }
+
+div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(56, 142, 60, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.25);
+}
+
+div:hover::before {
+    opacity: 1;
+}
+
+div p:first-child {
+    font-size: 18px;
+    color: #2d3436;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+div p:last-child {
+    font-size: 14px;
+    color: #4caf50;
+    font-weight: 600;
+    text-align: right;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid rgba(76, 175, 80, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+        margin: 30px 0 40px 0;
+    }
+    
+    div {
+        padding: 25px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+        margin: 20px 0 30px 0;
+    }
+    
+    div {
+        padding: 20px;
+    }
+}
